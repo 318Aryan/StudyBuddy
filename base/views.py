@@ -11,20 +11,6 @@ from .forms import RoomForm, UserForm
 
 # Create your views here.
 
-def home_2(request):
-    q = request.GET.get('q') if request.GET.get('q') != None else ''
-
-    rooms = Room.objects.filter(
-        Q(topic__name__icontains=q) |
-        Q(name__icontains=q) |
-        Q(description__icontains=q))
-
-    topics = Topic.objects.all()
-    room_count = rooms.count()
-    room_messages = Message.objects.filter(Q(room__name__icontains=q))
-
-    context = {'rooms' : rooms, 'topics' : topics, 'room_count' : room_count, 'room_messages' : room_messages}
-    return render(request, 'base/home2.html', context)
 
 def LoginPage(request):
     page = 'login'

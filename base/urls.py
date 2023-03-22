@@ -15,5 +15,4 @@ urlpatterns = [
     path('update-user/', views.updateUser, name='update-user'), 
     path('topics/', views.topicsPage, name='topics'),
     path('activity/', views.activityPage, name='activity'), 
-    path('home_2', views.home_2, name="home_2")
 ]
